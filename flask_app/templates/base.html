@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <!-- Enlace a CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -21,8 +20,15 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('menu') }}">Menú</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Salir</a></li>
                     {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Registrarse</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Opciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url_for('login') }}">Iniciar Sesión</a>
+                            <a class="dropdown-item" href="{{ url_for('register') }}">Registrarse</a>
+                        </div>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -31,7 +37,6 @@
     <main class="container mt-4">
         {% block content %}{% endblock %}
     </main>
-    <!-- Enlace a JS de Bootstrap (opcional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
