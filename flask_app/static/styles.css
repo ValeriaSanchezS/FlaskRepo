@@ -1,0 +1,86 @@
+/* BASIC */
+
+html {
+    background-color: #56baed;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#formContent {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+}
+
+#formContent h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#formContent h2, #formContent h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#formContent img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#formContent input[type="text"],
+#formContent input[type="password"] {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#formContent input[type="submit"] {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#formContent input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#formFooter {
+    margin-top: 20px;
+}
+
+#formFooter .underlineHover {
+    color: #6c757d;
+    cursor: pointer;
+}
+
+#formFooter .underlineHover:hover {
+    color: #5a6268;
+    text-decoration: underline;
+}
