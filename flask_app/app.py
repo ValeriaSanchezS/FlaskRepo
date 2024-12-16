@@ -24,7 +24,7 @@ def before_request():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -41,12 +41,23 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+        department = request.form['department']
         username = request.form['username']
         password = request.form['password']
         if User.query.filter_by(username=username).first():
             flash('El nombre de usuario ya está en uso')
         else:
-            user = User(username=username, password_hash=generate_password_hash(password))
+            user = User(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                department=department,
+                username=username,
+                password_hash=generate_password_hash(password)
+            )
             db.session.add(user)
             db.session.commit()
             flash('Registro exitoso, ahora puedes iniciar sesión')
@@ -62,7 +73,7 @@ def menu():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 @app.route('/datos')
 @login_required
@@ -86,3 +97,4 @@ def graficas():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
