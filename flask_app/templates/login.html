@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 {% block title %}Iniciar Sesión{% endblock %}
 {% block content %}
-<div class="container mt-5">
-    <h2>Iniciar Sesión</h2>
-    <form method="post">
-        <div class="form-group">
-            <label for="username">Usuario:</label>
-            <input type="text" class="form-control" name="username" id="username" required>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Títulos -->
+        <h1 class="fadeIn first">Bienvenid@</h1>
+        <div class="fadeIn first">
+            <img src="{{ url_for('static', filename='logo.png') }}" id="icon" alt="ALCALDÍA TLALPAN NUESTRA CASA SE TRANSFORMA 2024 - 2027" />
         </div>
-        <div class="form-group">
-            <label for="password">Contraseña:</label>
-            <input type="password" class="form-control" name="password" id="password" required>
+
+        <!-- Formulario de inicio de sesión -->
+        <form method="post">
+            <div class="form-group">
+                <input type="text" id="username" class="fadeIn second form-control" name="username" placeholder="usuario" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" class="fadeIn third form-control" name="password" placeholder="contraseña" required>
+            </div>
+            <input type="submit" class="fadeIn fourth btn btn-primary" value="Iniciar Sesión">
+        </form>
+
+        <!-- Botón de Registro -->
+        <div id="formFooter">
+            <a class="underlineHover btn btn-secondary" href="{{ url_for('register') }}">Registrarse</a>
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-    </form>
+    </div>
 </div>
 {% endblock %}
