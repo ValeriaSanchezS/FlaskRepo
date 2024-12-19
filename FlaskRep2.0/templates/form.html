@@ -1,53 +1,117 @@
 {% extends "base.html" %}
 {% block title %}Formulario de Datos{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
-<div class="container">
-    <h2>Formulario de Datos</h2>
-    <form>
-        <div class="form-group">
-            <label for="dimension_programa">Dimensión del Programa:</label>
-            <select id="dimension_programa" name="dimension_programa">
-                <option value="beneficiario">Beneficiario Directo</option>
-                <option value="facilitadores">Facilitadores</option>
-                <option value="colectivos">Colectivos</option>
-                <option value="Usuarios">Usuarios</option>
-                <option value="otra">Otra</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="form-group">
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-        </div>
-        <div class="form-group">
-            <label for="colonia">Colonia:</label>
-            <input type="text" id="colonia" name="colonia">
-        </div>
-        <div class="form-group">
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" name="ubicacion">
-        </div>
-        <div class="form-group">
-            <label for="sexo">Sexo:</label>
-            <select id="sexo" name="sexo">
-                <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-                <option value="otro">Otro</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono">
-        </div>
-        <div class="form-group">
-            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
-        </div>
-        <button type="submit">Enviar</button>
-    </form>
-</div>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='formulario.css') }}">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            // Coordenadas de Tlalpan, Ciudad de México
+            const tlalpanCoords = { lat: 19.287860, lng: -99.171360 };
+            map = L.map('map').setView([tlalpanCoords.lat, tlalpanCoords.lng], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Crear un marcador inicial y permitir que el usuario lo arrastre
+            marker = L.marker([tlalpanCoords.lat, tlalpanCoords.lng], {draggable: true}).addTo(map);
+
+            marker.on('dragend', function(event) {
+                const position = marker.getLatLng();
+                updateLocation(position);
+            });
+        }
+
+        function updateLocation(location) {
+            document.getElementById('ubicacion').value = location.lat + ', ' + location.lng;
+        }
+
+        function toggleMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (mapContainer.style.display === 'none' || mapContainer.style.display === '') {
+                mapContainer.style.display = 'block';
+                initMap();
+            } else {
+                mapContainer.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('map-container').style.display = 'none';
+        });
+    </script>
+</head>
+
+
+
+
+<body>
+    <div class="container">
+        <form class="miFormulario" action="">
+            <div class="row">
+                <div class="column">
+                    <h2 class="title">Formulario de Datos</h2>
+                    <div class="form-group">
+                        <label for="dimension_programa">Dimensión del Programa:</label>
+                        <select id="dimension_programa" name="dimension_programa">
+                            <option value="beneficiario">Beneficiario Directo</option>
+                            <option value="facilitadores">Facilitadores</option>
+                            <option value="colectivos">Colectivos</option>
+                            <option value="Usuarios">Usuarios</option>
+                            <option value="otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo">
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                    </div>
+
+                    <div class="flex">
+                        <div class="form-group">
+                            <label for="colonia">Colonia:</label>
+                            <input type="text" id="colonia" name="colonia">
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación:</label>
+                            <input type="text" id="ubicacion" name="ubicacion" readonly>
+                            <button type="button" onclick="toggleMap()">Seleccionar Ubicación</button>
+                            <div id="map-container">
+                                <div id="map" style="height: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
 {% endblock %}
+
