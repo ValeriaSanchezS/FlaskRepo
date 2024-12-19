@@ -1,123 +1,82 @@
 /* BASIC */
 
-html {
-    background-color: white; /* Fondo blanco */
-    height: 100%; /* Asegura que ocupe toda la altura */
-}
+/* Estilos generales de la aplicación */
 
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100%;
+html, body {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo {
-    text-align: center;
-    align-items: center;
-}
-
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     height: 100%;
+    width: 100%;
 }
 
-#formContent {
-    padding: 40px;
-    text-align: center;
-    width: 100%; /* Tamaño fijo más grande */
-    max-width: 800px; /* Anchura máxima */
-    min-height: 500px; /* Altura mínima */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Links */
+a {
+    text-decoration: none;
+    color: #007bff;
 }
 
-#formContent h1,
-#formContent h2,
-#formContent h3,
-#formContent img {
+a:hover {
+    color: #0056b3;
+}
+
+/* Clases generales para contenedores */
+.container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-#formContent h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+/* Botones */
+button {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Estilo base para h2 */
-#formContent h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-align: center; /* Centra el título horizontalmente */
-    margin-top: 20px; /* Ajusta la separación superior */
+button.primary {
+    background-color: #007bff;
+    color: white;
 }
 
-/* Opcional: Si deseas mover el título a la izquierda o a la derecha */
-#formContent h2.izquierda {
-    text-align: left; /* Mueve el título a la izquierda */
-    margin-left: 0; /* Ajusta el margen izquierdo */
+button.primary:hover {
+    background-color: #0056b3;
 }
 
-#formContent h2.derecha {
-    text-align: right; /* Mueve el título a la derecha */
-    margin-right: 0; /* Ajusta el margen derecho */
+button.secondary {
+    background-color: #6c757d;
+    color: white;
 }
 
-#formContent img {
-    width: 150px;
-    height: auto;
-    margin-bottom: 20px;
+button.secondary:hover {
+    background-color: #5a6268;
 }
 
-#formContent input[type="text"],
-#formContent input[type="password"] {
-    width: 85%;
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Formularios */
+input, textarea, select {
+    font-family: inherit;
+    font-size: 16px;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
-/* Botón de Iniciar Sesión */
-#formContent input[type="submit"] {
-    display: block; /* Alineado vertical */
-    width: 70%;
-    padding: 10px;
-    margin: 10px auto; /* Centrado */
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-#formContent input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Botón de Registrarse */
-#formFooter .underlineHover {
-    display: block; /* Alineado vertical */
-    width: 75%;
-    padding: 10px;
-    margin: 10px auto; /* Centrado */
-    border-radius: 4px;
-    background-color: #6c757d;
-    color: white;
-    text-align: center;
-    text-decoration: none; /* Sin subrayado */
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#formFooter .underlineHover:hover {
-    background-color: #5a6268;
-}
