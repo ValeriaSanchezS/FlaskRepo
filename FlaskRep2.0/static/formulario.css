@@ -1,65 +1,100 @@
 /* Añadir Bootstrap CSS */ 
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #cd6161;
+    overflow: hidden; /* Evita que los elementos desborden el contenedor */ 
 }
 
-h2, h3 {
+.container form {
+    width: 600px;
+    max-width: 600px; /* Ajusta el valor máximo */
+    padding: 60px;
+    background: #fff;
+}
+
+form .row{
+    display: flex;
+    gap: 15px;
+}
+
+.row .column{
+    flex: 1 1 250px
+}
+
+.column .title{
     text-align: center;
-    color: #333;
-    font-weight: bold;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
+    font-size: 30px;
+    color: #0e0c0c;
+    text-transform: uppercase;
     margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
 }
 
-.form-group input,
-.form-group select {
+.column .form-group{
+    margin: 15px 0;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input{
     width: 100%;
-    padding: 10px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
-button {
+.column .flex{
+    display: flex;
+    gap: 15px;
+}
+
+.flex .input-box{
+    margin-top: 5px;
+}
+
+form .btn{
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    padding: 12px;
+    background: #e34545;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #fff;
+    margin-top: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: .5s;
 }
 
-button:hover {
-    background-color: #0056b3;
+form .btn:hover{
+    background: #e34545;
 }
+
+.miFormulario {
+    background-color: transparent; /* Fondo transparente */
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 600px; /* Ajusta el valor máximo si es necesario */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    margin: auto; /* Centra el contenedor */
+}
+
