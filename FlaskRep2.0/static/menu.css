@@ -1,0 +1,56 @@
+/* Estilo general para el contenedor principal */
+#formContent {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Centra el contenedor */
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para el título */
+#formContent h2.centro {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Color de texto oscuro */
+    text-transform: uppercase; /* Mayúsculas */
+    font-weight: bold;
+}
+
+/* Estilo para la cuadrícula de menú */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+    gap: 20px; /* Espaciado entre elementos */
+    margin-top: 20px;
+}
+
+/* Estilo para los elementos del menú */
+.menu-item {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    background-color: #007bff; /* Fondo azul */
+    color: white;
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Transición suave */
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    background-color: #0056b3; /* Fondo azul oscuro al pasar el ratón */
+    color: white;
+}
+
+/* Estilo para enlaces vacíos (por ejemplo, Metas si no tiene texto) */
+.menu-item:empty {
+    display: none; /* Oculta elementos vacíos */
+}
