@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Formulario de Datos{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+<div class="container">
+    <h2>Formulario de Datos</h2>
+    <form>
+        <div class="form-group">
+            <label for="dimension_programa">Dimensión del Programa:</label>
+            <select id="dimension_programa" name="dimension_programa">
+                <option value="beneficiario">Beneficiario Directo</option>
+                <option value="facilitadores">Facilitadores</option>
+                <option value="colectivos">Colectivos</option>
+                <option value="Usuarios">Usuarios</option>
+                <option value="otra">Otra</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+        <div class="form-group">
+            <label for="colonia">Colonia:</label>
+            <input type="text" id="colonia" name="colonia">
+        </div>
+        <div class="form-group">
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion">
+        </div>
+        <div class="form-group">
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono">
+        </div>
+        <div class="form-group">
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Menú{% endblock %}
+
+{% block content %}
+<div id="formContent">
+    <!-- Cambia "centro" por "izquierda" o "derecha" según lo necesites -->
+    <h2 class="centro">Programas Sociales</h2>
+    <div class="menu-grid">
+        <a class="menu-item" href="{{ url_for('form') }}">Cuidar y ser cuidado para el Bienestar 2025</a>
+        <a class="menu-item" href="{{ url_for('metas') }}">Apoyo para el Bienestar 2025</a>
+        <a class="menu-item" href="{{ url_for('progreso') }}">Transformando en Comunidad</a>
+        <a class="menu-item" href="{{ url_for('graficas') }}">Juventudes en Transformacion</a>
+    </div>
+</div>
+{% endblock %}

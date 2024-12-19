@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Iniciar Sesión{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+
+
+<!-- Título principal -->
+<h1 style="text-align: center;">Bienvenid@!</h1>
+
+<!-- Formulario centrado -->
+<div class="wrapper fadeInDown" style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
+    <div id="formContent" style="width: 300px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+    
+        <!-- Logo centrado -->
+        <div class="logo" style="text-align: center; margin: 50px;">
+            <img src="{{ url_for('static', filename='logo.png') }}" id="imagen" alt="Logo" style="width: 150px;">
+        </div>
+
+        <!-- Formulario -->
+        <form method="post" style="text-align: center;">
+            <div class="form-group">
+                <input type="text" id="username" class="fadeIn second form-control" name="username" placeholder="Usuario" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" class="fadeIn third form-control" name="password" placeholder="Contraseña" required>
+            </div>
+            <input type="submit" class="fadeIn fourth btn btn-primary" value="Iniciar Sesión" style="width: 70%; margin-bottom: 10px;">
+        </form>
+
+        <!-- Botón de Registro centrado -->
+        <div id="formFooter" style="text-align: center; margin-top: 10px;">
+            <a class="underlineHover btn btn-secondary" href="{{ url_for('register') }}" style="display: inline-block; width: 70%; padding: 10px; background-color: #6c757d; color: white; border-radius: 4px; text-decoration: none; text-align: center;">Registrarse</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
