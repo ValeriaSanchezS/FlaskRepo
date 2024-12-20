@@ -31,6 +31,15 @@
 
         function updateLocation(location) {
             document.getElementById('ubicacion').value = location.lat + ', ' + location.lng;
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${location.lat}&lon=${location.lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.address) {
+                        const address = `${data.address.road || ''}, ${data.address.suburb || ''}, ${data.address.city || ''}, ${data.address.state || ''}, ${data.address.country || ''}`;
+                        document.getElementById('direccion').value = address;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         }
 
         function toggleMap() {
@@ -46,11 +55,19 @@
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('map-container').style.display = 'none';
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectDimension = document.getElementById('dimension_programa');
+            const facilitadoresDiv = document.getElementById('facilitadores');
+            const colectivosDiv = document.getElementById('colectivos');
+
+            selectDimension.addEventListener('change', function() {
+                facilitadoresDiv.style.display = this.value === 'facilitadores' ? 'block' : 'none';
+                colectivosDiv.style.display = this.value === 'colectivos' ? 'block' : 'none';
+            });
+        });
     </script>
 </head>
-
-
-
 
 <body>
     <div class="container">
@@ -58,17 +75,56 @@
             <div class="row">
                 <div class="column">
                     <h2 class="title">Formulario de Datos</h2>
+                    <h3 class="titles">Apoyo para el bienestar 2025</h3>
                     <div class="form-group">
                         <label for="dimension_programa">Dimensión del Programa:</label>
                         <select id="dimension_programa" name="dimension_programa">
+                            <option value="">Seleccione una dimensión</option>
                             <option value="beneficiario">Beneficiario Directo</option>
                             <option value="facilitadores">Facilitadores</option>
                             <option value="colectivos">Colectivos</option>
-                            <option value="Usuarios">Usuarios</option>
+                            <option value="usuarios">Usuarios</option>
                             <option value="otra">Otra</option>
                         </select>
                     </div>
+                    <div id="facilitadores" class="hidden" style="display: none;">
+                        <h3>Facilitadores</h3>
+                        <div class="form-group">
+                            <label for="name1">Persona médica:</label>
+                            <input type="text" id="name1" name="name1">
+                        </div>
+                        <div class="form-group">
+                            <label for="actividad">Actividad:</label>
+                            <select id="actividad" name="actividad">
+                                <option value="">--Seleccione una actividad--</option>
+                                <option value="actividad1">Consulta médica</option>
+                                <option value="actividad2">Reposición de cita</option>
+                                <option value="actividad3">Urgencia</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="observacion">Observaciones:</label>
+                            <textarea id="observacion" name="observacion" rows="4" style="width: 100%;"></textarea>
+                        </div>
+                    </div>
+                    <div id="colectivos" class="hidden" style="display: none;">
+                        <h3>Colectivos</h3>
+                        <div class="form-group">
+                            <label for="colec">Colectivo:</label>
+                            <input type="text" id="colec" name="colec">
+                        </div>
+                        <div class="form-group">
+                            <label for="tperson">Persona representante:</label>
+                            <select id="tperson" name="tperson">
+                                <option value="">Seleccione una persona</option>
+                                <option value="persona1">Coordinador</option>
+                                <option value="persona2">Integrante</option>
+                                <option value="persona3">Usuario</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
+                        <h3>Datos de la persona beneficiaria</h3>
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
@@ -92,20 +148,23 @@
                         <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
                     </div>
-
                     <div class="flex">
                         <div class="form-group">
                             <label for="colonia">Colonia:</label>
                             <input type="text" id="colonia" name="colonia">
                         </div>
-                        <div class="form-group">
-                            <label for="ubicacion">Ubicación:</label>
-                            <input type="text" id="ubicacion" name="ubicacion" readonly>
-                            <button type="button" onclick="toggleMap()">Seleccionar Ubicación</button>
-                            <div id="map-container">
-                                <div id="map" style="height: 400px;"></div>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación (Arrastra el PIN AZUL):</label>
+                        <input type="text" id="ubicacion" name="ubicacion" style="display: none;" readonly>
+                        <button type="button" onclick="toggleMap()">Seleccionar Ubicación</button>
+                        <div id="map-container">
+                            <div id="map" style="height: 400px;"></div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion" readonly>
                     </div>
                     <button type="submit" class="btn">Enviar</button>
                 </div>
