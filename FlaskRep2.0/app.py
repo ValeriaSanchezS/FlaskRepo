@@ -101,6 +101,7 @@ def graficas():
 def configuracion():
     return render_template('configuracion.html')
 
+#FORMULARIOS
 
 # Definir el nuevo endpoint para el formulario
 @app.route('/form')
@@ -108,6 +109,18 @@ def configuracion():
 def form():
     return render_template('form.html')
 
+@app.route('/formapoyo') 
+@login_required
+def formapoyo(): 
+    return render_template('formapoyo.html')
+
+@app.route('/formtransfor') 
+@login_required
+def formtransfor(): 
+    return render_template('formtransfor.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
 
