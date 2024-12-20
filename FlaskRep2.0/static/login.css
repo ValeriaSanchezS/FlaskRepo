@@ -29,12 +29,12 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%; /* Asegura que el contenedor ocupe el ancho */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho */
 }
 
 /* Cuadro del formulario */
 #formContent {
-    width: 200px; /* Ajusta el ancho del cuadro */
+    width: 300px; /* Ajusta el ancho del cuadro */
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
@@ -59,9 +59,9 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Botón de Iniciar Sesión */
-#formContent input[type="submit"] {
-    width: 90%; /* Ancho del botón */
+/* Botones */
+.button {
+    width: 100%; /* Ancho del botón */
     padding: 10px;
     margin: 10px auto;
     border: none;
@@ -70,26 +70,17 @@ body, html {
     color: white;
     font-size: 16px;
     cursor: pointer;
+    text-align: center; /* Asegura que el texto del botón esté centrado */
 }
 
-#formContent input[type="submit"]:hover {
+.button:hover {
     background-color: #0056b3;
 }
 
-/* Botón de Registrarse */
-#formFooter .underlineHover {
-    display: block;
-    width: 200%; /* Ancho del botón */
-    padding: 10px;
-    margin: 10px auto;
-    border: none;
-    border-radius: 4px;
+.button-secondary {
     background-color: #6c757d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
 }
 
-#formFooter .underlineHover:hover {
+.button-secondary:hover {
     background-color: #5a6268;
 }
