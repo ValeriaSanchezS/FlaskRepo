@@ -119,8 +119,10 @@ def formapoyo():
 def formtransfor(): 
     return render_template('formtransfor.html')
 
+@app.route('/formjuven') 
+@login_required
+def formjuven(): 
+    return render_template('formjuven.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
