@@ -124,5 +124,11 @@ def formtransfor():
 def formjuven(): 
     return render_template('formjuven.html')
 
+@app.route('/formulario_Subdirec') 
+@login_required
+def formulario_Subdirec(): 
+    return render_template('formulario_Subdirec.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
