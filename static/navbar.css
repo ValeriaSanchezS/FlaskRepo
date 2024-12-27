@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #f8f9fa; /* Fondo claro para navbar */
+    margin-bottom: 20px; /* Separación con el contenido */
+}
+
+.navbar-brand, .nav-link {
+    color: #333; /* Color oscuro para el texto */
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #c96f6f; /* Cambio de color al pasar el mouse */
+}
+
+/* Ajustar margen superior del contenido para evitar solapamiento con navbar */
+main.container {
+    margin-top: 70px; /* Ajusta según la altura de tu navbar */
+}

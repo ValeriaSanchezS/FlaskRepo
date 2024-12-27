@@ -1,0 +1,86 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+    color: #333;
+    height: 100%;
+}
+
+/* Página de login */
+.login-page {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex; /* Uso de Flexbox para centrar */
+    flex-direction: column; /* Coloca el título y el cuadro en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+
+/* Título principal */
+.login-page h1 {
+    font-size: 24px; /* Tamaño del texto */
+    margin-bottom: 20px; /* Separación del título con el cuadro */
+    text-align: center;
+}
+
+/* Wrapper del formulario */
+.wrapper.fadeInDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho */
+}
+
+/* Cuadro del formulario */
+#formContent {
+    width: 300px; /* Ajusta el ancho del cuadro */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Logo */
+.logo img {
+    width: 150px; /* Ajusta el tamaño del logo */
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+#formContent input[type="text"],
+#formContent input[type="password"] {
+    width: 100%; /* Ancho de los campos */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Botones */
+.button {
+    width: 100%; /* Ancho del botón */
+    padding: 10px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 4px;
+    background-color: #b44949;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center; /* Asegura que el texto del botón esté centrado */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button-secondary {
+    background-color: #6c757d;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+}
