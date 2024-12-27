@@ -129,6 +129,10 @@ def formjuven():
 def formulario_Subdirec(): 
     return render_template('formulario_Subdirec.html')
 
+@app.route('/formcuidadoinfacias') 
+@login_required
+def formcuidadoinfancias(): 
+    return render_template('formcuidadoinfancias.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
