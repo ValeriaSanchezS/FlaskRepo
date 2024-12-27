@@ -7,10 +7,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('menu') }}">Inicio</a></li>
                 {% if current_user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('graficas') }}">Graficas</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('configuracion') }}">Configuración</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Salir</a></li>
                 {% else %}
@@ -25,6 +24,13 @@
                 </li>
                 {% endif %}
             </ul>
+            {% if current_user.is_authenticated %}
+            <span class="navbar-text ml-auto">
+                Hola, {{ current_user.username }}
+            </span>
+            {% endif %}
         </div>
     </nav>
 </header>
+
+
